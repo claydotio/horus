@@ -3,9 +3,10 @@
 mkdir -p $LOG_DIR/horus
 
 while read -d $'\0' -r file; do
+  RANDOM_POSTFIX=`cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 5 | head -n 1`
   COLUMNS=`head -n 1 $file`
   DATA_SET=`basename $file | sed s/_horus\.tsv$//g`
-  OUTPUT_NAME=`date --date="1 hour ago" +"%Y%m%d.%H.tsv"`
+  OUTPUT_NAME="$(date --date='1 hour ago' +'%Y%m%d.%H')_$RANDOM_POSTFIX.tsv"
 
   echo "COLUMNS"
   echo $COLUMNS
