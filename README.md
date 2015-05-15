@@ -4,6 +4,8 @@ tsv rotator for [Imhotep](https://github.com/indeedeng/imhotep)
 
 Rotates all `*_horus.tsv` files to s3 hourly, using filename prefix as dataset name
 
+**Dataset names must be [a-z0-9]+ only!** 
+
 run:
 
 ```bash
